@@ -9,3 +9,5 @@ STRING_SESSION = os.getenv("STRING_SESSION")
 ADMIN_ID = int(os.getenv("ADMIN_ID"))
 
 MAX_SIZE = 50 * 1024 * 1024
+
+VIP_USERS = [123456789]  # 👑 add your id
