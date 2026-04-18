@@ -67,6 +67,17 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if cached:
         return await update.message.reply_document(cached)
 
+   # ✅ NEW: fetch video info (thumbnail + title etc.)
+    info = await asyncio.to_thread(download.get_info, url)
+
+    # 📸 Show preview first
+    await update.message.reply_photo(
+        photo=info["thumbnail"],
+        caption=build_caption(info),
+        reply_markup=quality_ui(info, url),
+        parse_mode="Markdown"
+    )
+    
     await update.message.reply_text(
         "Select quality",
         reply_markup=quality_ui(url)
