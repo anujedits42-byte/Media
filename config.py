@@ -10,4 +10,4 @@ ADMIN_ID = int(os.getenv("ADMIN_ID"))
 
 MAX_SIZE = 50 * 1024 * 1024
 
-VIP_USERS = [123456789]  # 👑 add your id
+VIP_USERS = [7892805795]  # 👑 add your id
