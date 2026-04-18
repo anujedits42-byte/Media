@@ -1,6 +1,7 @@
 import asyncio
 
 def make_progress_hook(message, title):
+
     async def edit(text):
         try:
             await message.edit_caption(text, parse_mode="Markdown")
@@ -14,22 +15,22 @@ def make_progress_hook(message, title):
             eta = d.get("_eta_str", "")
 
             try:
-                p = int(percent.replace("%", ""))
+                p = int(percent.replace("%",""))
             except:
                 p = 0
 
-            bar = "▓" * (p // 10) + "░" * (10 - p // 10)
+            bar = "█"*(p//10) + "░"*(10-p//10)
 
             text = (
-                f"🎬 *{title}*\n\n"
-                f"📥 Downloading...\n"
-                f"[{bar}] {percent}\n\n"
+                f"📥 *Downloading*\n\n"
+                f"{bar}\n"
+                f"{percent}\n\n"
                 f"⚡ {speed} | ⏱ {eta}"
             )
 
             asyncio.create_task(edit(text))
 
         elif d["status"] == "finished":
-            asyncio.create_task(edit(f"📤 Uploading... 0%"))
+            asyncio.create_task(edit("📤 *Uploading...*"))
 
     return hook
