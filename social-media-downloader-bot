@@ -1,0 +1,17 @@
+social-media-downloader-bot/
+│
+├── bot.py
+├── config.py
+├── downloader.py
+├── uploader.py
+├── ui.py
+├── queue_system.py
+├── cache.py
+├── progress.py
+│
+├── requirements.txt
+├── Procfile
+├── runtime.txt
+│
+├── downloads/
+└── sessions/
